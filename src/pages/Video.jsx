@@ -56,10 +56,10 @@ const Video = () => {
   const handleSub = async () => {
     currentUser.subscribedUsers.includes(channel._id)
       ? await axios.put(
-          `/users/unsub/${channel._id}`
+          `https://aletube.herokuapp.com/api/users/unsub/${channel._id}`
         )
       : await axios.put(
-          `/users/sub/${channel._id}`
+          `https://aletube.herokuapp.com/api/users/sub/${channel._id}`
         );
     dispatch(subscription(channel._id));
   };
@@ -103,10 +103,10 @@ const Video = () => {
         <Hr />
         <Channel>
           <ChannelInfo>
-            <Image src={channel.img} />
+            <Image src={channel?.img} />
             <ChannelDetail>
-              <ChannelName>{channel.name}</ChannelName>
-              <ChannelCounter>{channel.subscribers} subscribers</ChannelCounter>
+              <ChannelName>{channel?.name}</ChannelName>
+              <ChannelCounter>{channel?.subscribers} subscribers</ChannelCounter>
               <Description>{currentVideo?.desc}</Description>
             </ChannelDetail>
           </ChannelInfo>
