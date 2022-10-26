@@ -42,13 +42,13 @@ const Video = () => {
 
   const handleLike = async () => {
     await axios.put(
-      `/users/like/${currentVideo._id}`
+      `https://aletube.herokuapp.com/api/users/like/${currentVideo._id}`
     );
     dispatch(like(currentUser._id));
   };
   const handleDislike = async () => {
     await axios.put(
-      `/users/dislike/${currentVideo._id}`
+      `https://aletube.herokuapp.com/api/users/dislike/${currentVideo._id}`
     );
     dispatch(dislike(currentUser._id));
   };
