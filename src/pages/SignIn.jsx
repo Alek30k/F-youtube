@@ -21,7 +21,7 @@ const SignIn = () => {
     dispatch(loginStart());
     try {
       const res = await axios.post(
-        "/auth/signin",
+        "${process.env.REACT_APP_URL}/auth/signin",
         {
           name,
           password,
