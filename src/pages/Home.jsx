@@ -13,6 +13,7 @@ const Container = styled.div`
 
 const Home = ({ type }) => {
   const [videos, setVideos] = useState([]);
+const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -20,9 +21,12 @@ const Home = ({ type }) => {
         `/videos/${type}`
       );
       setVideos(res.data);
+      setIsLoading(false);
     };
     fetchVideos();
   }, [type]);
+
+  if (isLoading) return 'loading...';
 
   return (
     <Container>
