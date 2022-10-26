@@ -16,7 +16,7 @@ import { subscription } from "../redux/userSlice";
 import Recommendation from "../components/Recommendation";
 
 const Video = () => {
-  const { currentUser } = useSelector((state) => state.user);
+  const currentUser = useSelector((state) => state.user.currentUser);
   const currentVideo = useSelector((state) => state.video.currentVideo);
   const dispatch = useDispatch();
 
@@ -56,10 +56,10 @@ const Video = () => {
   const handleSub = async () => {
     currentUser.subscribedUsers.includes(channel._id)
       ? await axios.put(
-          `/users/unsub/${channel._id}`
+          `https://aletube.herokuapp.com/api/users/unsub/${channel._id}`
         )
       : await axios.put(
-          `/users/sub/${channel._id}`
+          `https://aletube.herokuapp.com/api/users/sub/${channel._id}`
         );
     dispatch(subscription(channel._id));
   };
