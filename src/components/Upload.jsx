@@ -76,7 +76,7 @@ const Upload = ({ setOpen }) => {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    const res = await axios.post("https://aletube.herokuapp.com/api/videos", {
+    const res = await axios.post("/videos", {
       ...inputs,
       tags,
     });

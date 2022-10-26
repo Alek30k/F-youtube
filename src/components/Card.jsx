@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { format } from "timeago.js";
+//  import { format } from "timeago.js";
 import axios from "axios";
 
 const Card = ({ type, video }) => {
@@ -10,7 +10,7 @@ const Card = ({ type, video }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       const res = await axios.get(
-        `https://aletube.herokuapp.com/api/users/find/${video.userId}`
+        `/users/find/${video.userId}`
       );
       setChannel(res.data);
     };
@@ -28,7 +28,7 @@ const Card = ({ type, video }) => {
             <ChannelName>{channel.name}</ChannelName>
             <Info>
               {" "}
-               {video.views} views • {format(video.createdAt)}
+               {/* {video.views} views • {format(video.createdAt)}{" "}  */}
             </Info>
           </Texts>
         </Details>

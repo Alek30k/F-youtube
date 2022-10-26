@@ -28,10 +28,10 @@ const Video = () => {
     const fetchData = async () => {
       try {
         const videoRes = await axios.get(
-          `https://aletube.herokuapp.com/api/videos/find/${path}`
+          `/videos/find/${path}`
         );
         const channelRes = await axios.get(
-          `https://aletube.herokuapp.com/api/users/find/${videoRes.data.userId}`
+          `/users/find/${videoRes.data.userId}`
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
@@ -42,13 +42,13 @@ const Video = () => {
 
   const handleLike = async () => {
     await axios.put(
-      `https://aletube.herokuapp.com/api/users/like/${currentVideo._id}`
+      `/users/like/${currentVideo._id}`
     );
     dispatch(like(currentUser._id));
   };
   const handleDislike = async () => {
     await axios.put(
-      `https://aletube.herokuapp.com/api/users/dislike/${currentVideo._id}`
+      `/users/dislike/${currentVideo._id}`
     );
     dispatch(dislike(currentUser._id));
   };
@@ -56,10 +56,10 @@ const Video = () => {
   const handleSub = async () => {
     currentUser.subscribedUsers.includes(channel._id)
       ? await axios.put(
-          `https://aletube.herokuapp.com/api/users/unsub/${channel._id}`
+          `/users/unsub/${channel._id}`
         )
       : await axios.put(
-          `https://aletube.herokuapp.com/api/users/sub/${channel._id}`
+          `/users/sub/${channel._id}`
         );
     dispatch(subscription(channel._id));
   };
@@ -103,10 +103,10 @@ const Video = () => {
         <Hr />
         <Channel>
           <ChannelInfo>
-            <Image src={channel?.img} />
+            <Image src={channel.img} />
             <ChannelDetail>
-              <ChannelName>{channel?.name}</ChannelName>
-              <ChannelCounter>{channel?.subscribers} subscribers</ChannelCounter>
+              <ChannelName>{channel.name}</ChannelName>
+              <ChannelCounter>{channel.subscribers} subscribers</ChannelCounter>
               <Description>{currentVideo?.desc}</Description>
             </ChannelDetail>
           </ChannelInfo>
