@@ -16,18 +16,12 @@ const SignIn = () => {
 
   const navigate = useNavigate();
 
-  const url = process.env.REACT_APP_URL
-  const url1 = `${process.env.REACT_APP_URL}`
-
-  console.log('>>>>>>>',url);
-  console.log(url1);
-
   const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_URL}/auth/signin`,
+        "https://aletube.herokuapp.com/api/auth/signin",
         {
           name,
           password,
@@ -45,7 +39,7 @@ const SignIn = () => {
     dispatch(loginStart());
     try {
       const res = await axios.post(
-        "/auth/signup",
+        "https://aletube.herokuapp.com/api/auth/signup",
         {
           name,
           email,
@@ -64,7 +58,7 @@ const SignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         axios
-          .post("/auth/google", {
+          .post("https://aletube.herokuapp.com/api/auth/google", {
             name: result.user.displayName,
             email: result.user.email,
             img: result.user.photoURL,
