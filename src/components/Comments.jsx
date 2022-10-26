@@ -38,7 +38,7 @@ const Comments = ({ videoId }) => {
     const fetchComments = async () => {
       try {
         const res = await axios.get(
-          `/comments/${videoId}`
+          `https://aletube.herokuapp.com/api/comments/${videoId}`
         );
         setComments(res.data);
         setLoading(false);
