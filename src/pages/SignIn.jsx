@@ -39,7 +39,7 @@ const SignIn = () => {
     dispatch(loginStart());
     try {
       const res = await axios.post(
-        "https://aletube.herokuapp.com/api/auth/signup",
+        "/auth/signup",
         {
           name,
           email,
@@ -58,7 +58,7 @@ const SignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         axios
-          .post("https://aletube.herokuapp.com/api/auth/google", {
+          .post("/auth/google", {
             name: result.user.displayName,
             email: result.user.email,
             img: result.user.photoURL,
