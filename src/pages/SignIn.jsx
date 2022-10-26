@@ -17,15 +17,17 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const url = process.env.REACT_APP_URL
+  const url1 = `${process.env.REACT_APP_URL}`
 
   console.log(url);
+  console.log(url1);
 
   const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(loginStart());
     try {
       const res = await axios.post(
-        "process.env.REACT_APP_URL/auth/signin",
+        `${process.env.REACT_APP_URL}/auth/signin`,
         {
           name,
           password,
