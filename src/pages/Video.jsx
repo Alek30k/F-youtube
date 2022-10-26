@@ -28,10 +28,10 @@ const Video = () => {
     const fetchData = async () => {
       try {
         const videoRes = await axios.get(
-          `https://aletube.herokuapp.com/api//videos/find/${path}`
+          `/videos/find/${path}`
         );
         const channelRes = await axios.get(
-          `https://aletube.herokuapp.com/api//users/find/${videoRes.data.userId}`
+          `/users/find/${videoRes.data.userId}`
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));

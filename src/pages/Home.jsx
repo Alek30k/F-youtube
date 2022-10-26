@@ -17,7 +17,7 @@ const Home = ({ type }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       const res = await axios.get(
-        `https://aletube.herokuapp.com/api//videos/${type}`
+        `https://aletube.herokuapp.com/api/videos/${type}`
       );
       setVideos(res.data);
       setLoading(false);
