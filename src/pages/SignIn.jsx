@@ -19,7 +19,7 @@ const SignIn = () => {
   const url = process.env.REACT_APP_URL
   const url1 = `${process.env.REACT_APP_URL}`
 
-  console.log(url);
+  console.log('>>>>>>>',url);
   console.log(url1);
 
   const handleLogin = async (e) => {
