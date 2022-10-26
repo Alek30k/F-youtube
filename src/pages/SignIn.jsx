@@ -21,7 +21,7 @@ const SignIn = () => {
     dispatch(loginStart());
     try {
       const res = await axios.post(
-        "/auth/signin",
+        "https://aletube.herokuapp.com/api/auth/signin",
         {
           name,
           password,
