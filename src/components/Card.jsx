@@ -10,7 +10,7 @@ const Card = ({ type, video }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       const res = await axios.get(
-        `/users/find/${video.userId}`
+        `https://aletube.herokuapp.com/api/users/find/${video.userId}`
       );
       setChannel(res.data);
     };
