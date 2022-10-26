@@ -12,7 +12,6 @@ const Container = styled.div`
 
 const Home = ({ type }) => {
   const [videos, setVideos] = useState([]);
-  const [loading,setLoading] = useState(true);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -20,12 +19,10 @@ const Home = ({ type }) => {
         `https://aletube.herokuapp.com/api//videos/${type}`
       );
       setVideos(res.data);
-      setLoading(false);
     };
     fetchVideos();
   }, [type]);
 
-  {if (loading) return <div>Loading...</div>}
   return (
     <Container>
       {videos?.map((video) => (
