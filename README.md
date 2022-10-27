@@ -1,8 +1,8 @@
-# F-youtube
+# ArcTube
 
-React Node.js Booking App | MERN Stack Reservation App (JWT, Cookies, Context API)
+React-Node.js-Redux-JWT-Cookies-Styled Components-Firebase-MongoDB
 
-Deploy: https://f-hotel-reservation.vercel.app/hotels
+Deploy: https://cloneyoutube-rma9eshhx-alek30k.vercel.app/
 
 
 ![Selección_002](https://user-images.githubusercontent.com/101005998/198392701-f7227cb4-82f6-4ecb-bc19-afeeeb8fc09f.png)
