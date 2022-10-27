@@ -17,7 +17,7 @@ const Search = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       const res = await axios.get(
-        `https://aletube.herokuapp.com/api/videos/search${query}`
+        `/videos/search${query}`
       );
       setVideos(res.data);
     };
