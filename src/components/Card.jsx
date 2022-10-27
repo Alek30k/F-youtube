@@ -6,7 +6,6 @@ import axios from "axios";
 
 const Card = ({ type, video }) => {
   const [channel, setChannel] = useState({});
-  const [loading,setLoading] = useState(true);
 
   useEffect(() => {
     const fetchChannel = async () => {
@@ -14,11 +13,10 @@ const Card = ({ type, video }) => {
         `/users/find/${video.userId}`
       );
       setChannel(res.data);
-      setLoading(false);
     };
     fetchChannel();
   }, [video.userId]);
-  {if (loading) return <div>Loading...</div>}
+  
   return (
     <Link to={`/video/${video._id}`} style={{ textDecoration: "none" }}>
       <Container type={type}>
