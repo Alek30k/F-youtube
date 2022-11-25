@@ -9,6 +9,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Upload from "./Upload";
 import { logout } from "../redux/userSlice";
+import { mobile0 } from "../responsive";
+import { mobile1 } from "../responsive";
+import { mobile2 } from "../responsive";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   const navigate = useNavigate();
@@ -35,16 +38,11 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               onChange={(e) => setQ(e.target.value)}
               style={{ fontSize: 18, fontWeight: "500" }}
               onKeyPress={(e) =>
-                e.key === "Enter" &&
-                navigate(`/search?q=${q}`)
+                e.key === "Enter" && navigate(`/search?q=${q}`)
               }
             />
             <ButtonSearch>
-              <SearchOutlinedIcon
-                onClick={() =>
-                  navigate(`/search?q=${q}`)
-                }
-              />
+              <SearchOutlinedIcon onClick={() => navigate(`/search?q=${q}`)} />
             </ButtonSearch>
           </Search>
           {currentUser ? (
@@ -97,6 +95,8 @@ const Container = styled.div`
   top: 0;
   background-color: ${({ theme }) => theme.bgLighter};
   height: 66px;
+  ${mobile0({ height: "60px" })};
+  ${mobile1({ height: "50px" })};
 `;
 
 const Wrapper = styled.div`
@@ -163,6 +163,8 @@ const Search = styled.div`
   border-radius: 3px;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.bg};
+  ${mobile1({ height: "30%" })};
+  ${mobile2({ height: "20%" })};
 `;
 
 const ButtonSearch = styled.div`
@@ -176,6 +178,7 @@ const ButtonSearch = styled.div`
   top: 0;
   bottom: 0;
   cursor: pointer;
+  ${mobile1({ background: "none" })};
 `;
 
 const Input = styled.input`
