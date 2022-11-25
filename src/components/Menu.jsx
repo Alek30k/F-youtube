@@ -21,6 +21,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";
+import { mobile1 } from "../responsive";
 
 const Menu = ({ darkMode, setDarkMode }) => {
   const { currentUser } = useSelector((state) => state.user);
@@ -35,19 +36,19 @@ const Menu = ({ darkMode, setDarkMode }) => {
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Logo>
             <Img src={AleTube} />
-            ArcTube
+            <Items>ArcTube</Items>
           </Logo>
         </Link>
         <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
           <Item>
             <HomeIcon />
-            Home
+            <Items>Home</Items>
           </Item>
         </Link>
         <Link to="trends" style={{ textDecoration: "none", color: "inherit" }}>
           <Item>
             <ExploreOutlinedIcon />
-            Explore
+            <Items>Explore</Items>
           </Item>
         </Link>
         <Link
@@ -56,17 +57,17 @@ const Menu = ({ darkMode, setDarkMode }) => {
         >
           <Item>
             <SubscriptionsOutlinedIcon />
-            Subscriptions
+            <Items>Subscriptions</Items>
           </Item>
         </Link>
         <Hr />
         <Item>
           <VideoLibraryOutlinedIcon />
-          Library
+          <Items>Library</Items>
         </Item>
         <Item>
           <HistoryOutlinedIcon />
-          History
+          <Items>History</Items>
         </Item>
         <Hr />
         {!currentUser && (
@@ -83,54 +84,59 @@ const Menu = ({ darkMode, setDarkMode }) => {
             <Hr />
           </>
         )}
-        <Title>BEST OF ARCTUBE</Title>
+        <Items>
+          <Title>BEST OF ARCTUBE</Title>
+        </Items>
         <Item>
           <LibraryMusicOutlinedIcon />
-          Music
+          <Items>Music</Items>
         </Item>
         <Item>
           <SportsBasketballOutlinedIcon />
-          Sports
+          <Items>Sports</Items>
         </Item>
         <Item>
           <SportsEsportsOutlinedIcon />
-          Gaming
+          <Items>Gaming</Items>
         </Item>
         <Item>
           <MovieOutlinedIcon />
-          Movies
+          <Items>Movies</Items>
         </Item>
         <Item>
           <ArticleOutlinedIcon />
-          News
+          <Items>News</Items>
         </Item>
         <Item>
           <LiveTvOutlinedIcon />
-          Live
+          <Items>Live</Items>
         </Item>
         <Hr />
         <Item>
           <SettingsOutlinedIcon />
-          Settings
+          <Items>Settings</Items>
         </Item>
         <Item>
           <FlagOutlinedIcon />
-          Report
+          <Items>Report</Items>
         </Item>
         <Item>
           <HelpOutlineOutlinedIcon />
-          Help
+          <Items>Help</Items>
         </Item>
+
         <Item onClick={() => setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon />
-          {darkMode ? "Light" : "Dark"} Mode
+          <Items>{darkMode ? "Light" : "Dark"} Mode</Items>
         </Item>
-        {currentUser && (
-          <Button onClick={handleClick}>
-            <LogoutIcon />
-            Logout
-          </Button>
-        )}
+        <Items>
+          {currentUser && (
+            <Button onClick={handleClick}>
+              <LogoutIcon />
+              Logout
+            </Button>
+          )}
+        </Items>
       </Wrapper>
     </Container>
   );
@@ -151,6 +157,7 @@ const Container = styled.div`
 
 const Wrapper = styled.div`
   padding: 18px 26px;
+  ${mobile1({ width: "10px" })};
 `;
 const Logo = styled.div`
   display: flex;
@@ -173,11 +180,18 @@ const Item = styled.div`
 
   &&:hover {
     background-color: ${({ theme }) => theme.soft};
+    ${mobile1({ width: "30px" })};
   }
 `;
+
+const Items = styled.div`
+  ${mobile1({ display: "none" })};
+`;
+
 const Hr = styled.hr`
   margin: 15px 0px;
   border: 0.5px solid ${({ theme }) => theme.soft};
+  ${mobile1({ display: "none" })};
 `;
 
 const Login = styled.div``;
