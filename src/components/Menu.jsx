@@ -73,13 +73,15 @@ const Menu = ({ darkMode, setDarkMode }) => {
         {!currentUser && (
           <>
             <Login>
-              Sign in to like videos, comment, and subscribe.
-              <Link to="signin" style={{ textDecoration: "none" }}>
-                <Button>
-                  <AccountCircleOutlinedIcon />
-                  SIGN IN
-                </Button>
-              </Link>
+              <Items>
+                Sign in to like videos, comment, and subscribe.
+                <Link to="signin" style={{ textDecoration: "none" }}>
+                  <Button>
+                    <AccountCircleOutlinedIcon />
+                    SIGN IN
+                  </Button>
+                </Link>
+              </Items>
             </Login>
             <Hr />
           </>

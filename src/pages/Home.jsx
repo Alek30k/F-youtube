@@ -2,13 +2,24 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
 import axios from "axios";
+import { mobile4, mobile5 } from "../responsive";
 
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  ${mobile4({
+    marginRight: "100px",
+    display: "flex",
+    justifyContent: "center",
+  })};
+  ${mobile5({
+    marginRight: "10px",
+    display: "flex",
+    justifyContent: "center",
+    width: "50%",
+  })};
 `;
-
 
 const Home = ({ type }) => {
   const [videos, setVideos] = useState([]);
@@ -20,8 +31,7 @@ const Home = ({ type }) => {
         `https://aletube.herokuapp.com/api/videos/${type}`
       );
       setVideos(res.data);
-      setLoading(false)
-      
+      setLoading(false);
     };
     fetchVideos();
   }, [type]);

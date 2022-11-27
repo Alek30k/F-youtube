@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-//  import { format } from "timeago.js";
+import { format } from "timeago.js";
 import axios from "axios";
+import { mobile0, mobile5 } from "../responsive";
+import { mobile1 } from "../responsive";
+import { mobile2 } from "../responsive";
+import { mobile3 } from "../responsive";
+import { mobile4 } from "../responsive";
 
 const Card = ({ type, video }) => {
   const [channel, setChannel] = useState({});
@@ -27,8 +32,7 @@ const Card = ({ type, video }) => {
             <Title>{video.title}</Title>
             <ChannelName>{channel.name}</ChannelName>
             <Info>
-              {" "}
-              {/* {video.views} views • {format(video.createdAt)}{" "}  */}
+              {video.views} views • {format(video.createdAt)}
             </Info>
           </Texts>
         </Details>
@@ -45,6 +49,11 @@ const Container = styled.div`
   cursor: pointer;
   display: ${(props) => props.type === "sm" && "flex"};
   gap: 10px;
+  ${mobile0({ width: "350px" })};
+  ${mobile1({ width: "340px" })};
+  ${mobile2({ width: "300px" })};
+  ${mobile3({ width: "250px" })};
+  ${mobile4({ width: "200px" })};
 `;
 
 const Image = styled.img`
@@ -52,6 +61,7 @@ const Image = styled.img`
   height: ${(props) => (props.type === "sm" ? "110px" : "202px")};
   background-color: #999;
   flex: 1;
+  ${mobile4({ height: "150px" })};
 `;
 
 const Details = styled.div`

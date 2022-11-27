@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { dislike, fetchSuccess, like } from "../redux/videoSlice";
-// import { format } from "timeago.js";
+import { format } from "timeago.js";
 import { subscription } from "../redux/userSlice";
 import Recommendation from "../components/Recommendation";
 
@@ -35,7 +35,6 @@ const Video = () => {
         );
         setChannel(channelRes.data);
         dispatch(fetchSuccess(videoRes.data));
-        
       } catch (err) {}
     };
     fetchData();
@@ -65,7 +64,6 @@ const Video = () => {
     dispatch(subscription(channel._id));
   };
 
-
   return (
     <Container>
       <Content>
@@ -75,7 +73,7 @@ const Video = () => {
         <Title>{currentVideo?.title}</Title>
         <Details>
           <Info>
-            {/* {currentVideo?.views} views • {format(currentVideo?.createdAt)} */}
+            {currentVideo?.views} views • {format(currentVideo?.createdAt)}
           </Info>
           <Buttons>
             <Button onClick={handleLike}>
@@ -108,7 +106,9 @@ const Video = () => {
             <Image src={channel?.img} />
             <ChannelDetail>
               <ChannelName>{channel?.name}</ChannelName>
-              <ChannelCounter>{channel?.subscribers} subscribers</ChannelCounter>
+              <ChannelCounter>
+                {channel?.subscribers} subscribers
+              </ChannelCounter>
               <Description>{currentVideo?.desc}</Description>
             </ChannelDetail>
           </ChannelInfo>

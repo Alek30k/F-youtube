@@ -12,6 +12,7 @@ import { logout } from "../redux/userSlice";
 import { mobile0 } from "../responsive";
 import { mobile1 } from "../responsive";
 import { mobile2 } from "../responsive";
+import { mobile3 } from "../responsive";
 
 const Navbar = ({ darkMode, setDarkMode }) => {
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
                 }
                 onClick={() => setOpenModal(!openModal)}
               />
-              {currentUser.name}
+
               {openModal && (
                 <Menu>
                   <MenuItem onClick={() => setDarkMode(!darkMode)}>
@@ -97,6 +98,7 @@ const Container = styled.div`
   height: 66px;
   ${mobile0({ height: "60px" })};
   ${mobile1({ height: "50px" })};
+  ${mobile3({ width: "100%" })};
 `;
 
 const Wrapper = styled.div`
@@ -106,6 +108,8 @@ const Wrapper = styled.div`
   height: 100%;
   padding: 0px 20px;
   position: relative;
+
+  ${mobile3({ display: "flex", justifyContent: "start" })};
 `;
 
 const Menu = styled.div`
@@ -165,6 +169,11 @@ const Search = styled.div`
   background-color: ${({ theme }) => theme.bg};
   ${mobile1({ height: "30%" })};
   ${mobile2({ height: "20%" })};
+  ${mobile3({
+    width: "30%",
+    display: "flex",
+    justifyContent: "start",
+  })};
 `;
 
 const ButtonSearch = styled.div`
@@ -200,6 +209,7 @@ const Button = styled.button`
   display: flex;
   align-items: center;
   gap: 5px;
+  ${mobile1({ padding: "0 2px", fontSize: "10px" })};
 `;
 
 const User = styled.div`
@@ -209,6 +219,10 @@ const User = styled.div`
   font-weight: 500;
   cursor: pointer;
   color: ${({ theme }) => theme.text};
+  ${mobile3({
+    display: "flex",
+    justifyContent: "end",
+  })};
 `;
 
 const Avatar = styled.img`
