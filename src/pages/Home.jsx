@@ -9,7 +9,8 @@ const Container = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 10px;
-  padding: ${(props) => (props.type === "sm" ? "25px 0" : "25px 50px")};
+  padding: ${(props) => (props.type === "sm" ? "25px 0" : "25px 30px")};
+  margin-right: ${(props) => (props.type === "sm" ? "0px" : "30px")};
 `;
 
 const Home = ({ type }) => {

@@ -39,7 +39,7 @@ const Card = ({ type, video }) => {
 export default Card;
 
 const Container = styled.div`
-  width: ${(props) => props.type !== "sm" && "240px"};
+  width: ${(props) => props.type !== "sm" && "260px"};
   margin-bottom: ${(props) => (props.type === "sm" ? "10px" : "45px")};
   cursor: pointer;
   display: ${(props) => props.type === "sm" && "flex"};
