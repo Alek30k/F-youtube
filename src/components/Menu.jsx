@@ -21,7 +21,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/userSlice";
-import { mobile1 } from "../responsive";
+import { mobile1, mobile3, mobile4 } from "../responsive";
 
 const Menu = ({ darkMode, setDarkMode }) => {
   const { currentUser } = useSelector((state) => state.user);
@@ -155,24 +155,14 @@ const Container = styled.div`
   font-size: 14px;
   position: sticky;
   top: 0;
+  ${mobile3({ display: "none" })};
 `;
 
 const Wrapper = styled.div`
   padding: 18px 26px;
   ${mobile1({ width: "10px" })};
 `;
-const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: bold;
-  margin-bottom: 25px;
-  font-size: 17px;
-`;
 
-const Img = styled.img`
-  height: 25px;
-`;
 const Item = styled.div`
   display: flex;
   align-items: center;
@@ -184,6 +174,19 @@ const Item = styled.div`
     background-color: ${({ theme }) => theme.soft};
     ${mobile1({ width: "30px" })};
   }
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  font-size: 17px;
+`;
+
+const Img = styled.img`
+  height: 25px;
 `;
 
 const Items = styled.div`

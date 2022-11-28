@@ -52,8 +52,7 @@ const Container = styled.div`
   ${mobile0({ width: "350px" })};
   ${mobile1({ width: "340px" })};
   ${mobile2({ width: "300px" })};
-  ${mobile3({ width: "250px" })};
-  ${mobile4({ width: "200px" })};
+  ${mobile3({ width: "350px" })};
 `;
 
 const Image = styled.img`

@@ -9,7 +9,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Upload from "./Upload";
 import { logout } from "../redux/userSlice";
-import { mobile0 } from "../responsive";
+import { mobile0, mobile4 } from "../responsive";
+import AleTube from "../image/logo.png";
 import { mobile1 } from "../responsive";
 import { mobile2 } from "../responsive";
 import { mobile3 } from "../responsive";
@@ -29,10 +30,19 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     navigate("/");
   };
 
+  const closeModal = () => {
+    setOpenModal(false);
+  };
+
   return (
     <>
       <Container>
         <Wrapper>
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <Logo>
+              <Img src={AleTube} />
+            </Logo>
+          </Link>
           <Search>
             <Input
               placeholder="Search"
@@ -60,18 +70,20 @@ const Navbar = ({ darkMode, setDarkMode }) => {
               />
 
               {openModal && (
-                <Menu>
-                  <MenuItem onClick={() => setDarkMode(!darkMode)}>
-                    <SettingsBrightnessOutlinedIcon />
-                    {darkMode ? "Light" : "Dark"} Mode
-                  </MenuItem>
+                <Modal onClick={closeModal}>
+                  <Menu>
+                    <MenuItem onClick={() => setDarkMode(!darkMode)}>
+                      <SettingsBrightnessOutlinedIcon />
+                      {darkMode ? "Light" : "Dark"} Mode
+                    </MenuItem>
 
-                  <MenuLogout onClick={handleClick}>
-                    {" "}
-                    <LogoutIcon />
-                    Logout
-                  </MenuLogout>
-                </Menu>
+                    <MenuLogout onClick={handleClick}>
+                      {" "}
+                      <LogoutIcon />
+                      Logout
+                    </MenuLogout>
+                  </Menu>
+                </Modal>
               )}
             </User>
           ) : (
@@ -98,18 +110,22 @@ const Container = styled.div`
   height: 66px;
   ${mobile0({ height: "60px" })};
   ${mobile1({ height: "50px" })};
-  ${mobile3({ width: "100%" })};
+  ${mobile3({ display: "100%" })};
 `;
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  margin-right: 40px;
   height: 100%;
-  padding: 0px 20px;
+  // padding: 0px 20px;
   position: relative;
-
-  ${mobile3({ display: "flex", justifyContent: "start" })};
+  ${mobile3({
+    display: "flex",
+    justifyContent: "space-between",
+    marginLeft: "20px",
+  })};
 `;
 
 const Menu = styled.div`
@@ -138,6 +154,18 @@ const MenuLogout = styled.div`
   &:hover {
     background-color: ${({ theme }) => theme.soft};
   }
+`;
+
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  display: none;
+  ${mobile3({ display: "block" })};
+`;
+
+const Img = styled.img`
+  height: 25px;
 `;
 
 const MenuItem = styled.div`
@@ -230,4 +258,13 @@ const Avatar = styled.img`
   height: 32px;
   border-radius: 50%;
   background-color: #999;
+`;
+
+const Modal = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0px;
+  z-index: 999;
 `;

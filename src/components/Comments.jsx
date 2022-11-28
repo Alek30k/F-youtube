@@ -30,7 +30,6 @@ const Input = styled.input`
 
 const Comments = ({ videoId }) => {
   const { currentUser } = useSelector((state) => state.user);
-
   const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
 

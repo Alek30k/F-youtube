@@ -12,12 +12,12 @@ const Container = styled.div`
     marginRight: "100px",
     display: "flex",
     justifyContent: "center",
+    width: "50%",
   })};
   ${mobile5({
     marginRight: "10px",
     display: "flex",
     justifyContent: "center",
-    width: "50%",
   })};
 `;
 

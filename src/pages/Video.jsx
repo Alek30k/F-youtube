@@ -14,6 +14,7 @@ import { dislike, fetchSuccess, like } from "../redux/videoSlice";
 import { format } from "timeago.js";
 import { subscription } from "../redux/userSlice";
 import Recommendation from "../components/Recommendation";
+import { mobile4 } from "../responsive";
 
 const Video = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
