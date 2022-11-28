@@ -9,6 +9,7 @@ import Video from "./pages/Video";
 import SignIn from "./pages/SignIn";
 import Search from "./pages/Search";
 import { useSelector } from "react-redux";
+import { mobile3, mobile4, mobile5 } from "./responsive";
 
 const Container = styled.div`
   display: flex;
@@ -19,7 +20,10 @@ const Main = styled.div`
   background-color: ${({ theme }) => theme.bg};
 `;
 const Wrapper = styled.div`
-  padding: 25px 5px;
+  padding: 25px 96px;
+  // ${mobile3({ padding: "25px 30px" })};
+  // ${mobile3({ padding: "25px 5px" })};
+  // ${mobile4({ padding: "25px 0" })};
 `;
 
 function App() {

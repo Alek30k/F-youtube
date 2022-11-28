@@ -59,8 +59,10 @@ const Image = styled.img`
   width: ${(props) => (props.type === "sm" ? "100px" : "100%")};
   height: ${(props) => (props.type === "sm" ? "110px" : "202px")};
   background-color: #999;
+
+  ${mobile3({ width: "100vw", height: "180px" })};
   flex: 1;
-  ${mobile4({ height: "150px" })};
+  ${mobile4({ width: "100vw", height: "180px" })};
 `;
 
 const Details = styled.div`

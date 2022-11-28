@@ -34,6 +34,10 @@ const Navbar = ({ darkMode, setDarkMode }) => {
     setOpenModal(false);
   };
 
+  const handleModalClick = (e) => {
+    e.stopPropagation();
+  };
+
   return (
     <>
       <Container>
@@ -71,7 +75,7 @@ const Navbar = ({ darkMode, setDarkMode }) => {
 
               {openModal && (
                 <Modal onClick={closeModal}>
-                  <Menu>
+                  <Menu onClick={handleModalClick}>
                     <MenuItem onClick={() => setDarkMode(!darkMode)}>
                       <SettingsBrightnessOutlinedIcon />
                       {darkMode ? "Light" : "Dark"} Mode
