@@ -8,12 +8,8 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
-  ${mobile5({
-    marginRight: "10px",
-    display: "flex",
-    justifyContent: "center",
-  })};
+  gap: 10px;
+  padding: ${(props) => (props.type === "sm" ? "25px 0" : "25px 50px")};
 `;
 
 const Home = ({ type }) => {

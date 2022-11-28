@@ -3,11 +3,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { format } from "timeago.js";
 import axios from "axios";
-import { mobile0, mobile5 } from "../responsive";
-import { mobile1 } from "../responsive";
-import { mobile2 } from "../responsive";
-import { mobile3 } from "../responsive";
-import { mobile4 } from "../responsive";
 
 const Card = ({ type, video }) => {
   const [channel, setChannel] = useState({});
@@ -44,25 +39,19 @@ const Card = ({ type, video }) => {
 export default Card;
 
 const Container = styled.div`
-  width: ${(props) => props.type !== "sm" && "360px"};
+  width: ${(props) => props.type !== "sm" && "240px"};
   margin-bottom: ${(props) => (props.type === "sm" ? "10px" : "45px")};
   cursor: pointer;
   display: ${(props) => props.type === "sm" && "flex"};
   gap: 10px;
-  ${mobile0({ width: "350px" })};
-  ${mobile1({ width: "340px" })};
-  ${mobile2({ width: "300px" })};
-  ${mobile3({ width: "350px" })};
 `;
 
 const Image = styled.img`
-  width: ${(props) => (props.type === "sm" ? "100px" : "100%")};
+  width: ${(props) => (props.type === "sm" ? "100px" : "110%")};
   height: ${(props) => (props.type === "sm" ? "110px" : "202px")};
   background-color: #999;
-
-  // ${mobile3({ width: "100vw", height: "180px" })};
   flex: 1;
-  // ${mobile4({ width: "100vw", height: "180px" })};
+  border-radius: 10px;
 `;
 
 const Details = styled.div`

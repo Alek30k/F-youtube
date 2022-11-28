@@ -9,6 +9,7 @@ import Video from "./pages/Video";
 import SignIn from "./pages/SignIn";
 import Search from "./pages/Search";
 import { useSelector } from "react-redux";
+import { mobile4 } from "./responsive";
 
 const Container = styled.div`
   display: flex;
@@ -18,9 +19,7 @@ const Main = styled.div`
   flex: 7;
   background-color: ${({ theme }) => theme.bg};
 `;
-const Wrapper = styled.div`
-  padding: 25px 96px;
-`;
+const Wrapper = styled.div``;
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -44,6 +43,7 @@ function App() {
                     path="signin"
                     element={currentUser ? <Home /> : <SignIn />}
                   />
+
                   <Route path="video">
                     <Route path=":id" element={<Video />} />
                   </Route>
