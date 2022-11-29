@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
 import axios from "axios";
-import { mobile5 } from "../responsive";
 
 const Container = styled.div`
   display: flex;
