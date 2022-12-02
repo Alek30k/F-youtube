@@ -62,3 +62,14 @@ const Comments = ({ videoId }) => {
 };
 
 export default Comments;
+
+{/* <Container>
+<NewComment>
+  <Avatar src={currentUser?.img} />
+  <Input placeholder="Add a comment..." />
+  {/* <button>enviar</button> */}
+</NewComment>
+{comments?.map((comment) => (
+  <Comment key={comment?._id} comment={comment} />
+))}
+</Container> */}

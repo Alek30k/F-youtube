@@ -27,7 +27,7 @@ const Home = ({ type }) => {
     fetchVideos();
   }, [type]);
 
-  if (loading) return <div>cargandooo...</div>;
+  // if (loading) return <div>cargandooo...</div>;
   return (
     <Container>
       {videos?.map((video) => (
